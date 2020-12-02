@@ -13,10 +13,10 @@
     &:hover:enabled {
       background-color: #282c34;
       color: #fff;
-      transition: 0.5s;
+      transition: 0.25s;
     }
     &:not(:hover) {
-      transition: 0.5s;
+      transition: 0.25s;
     }
     &:disabled {
       opacity: 0.5;
