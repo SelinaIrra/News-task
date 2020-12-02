@@ -1,0 +1,29 @@
+.article {
+  width: 440px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ebebee;
+    border-radius: 2px;
+    cursor: pointer;
+    &__header {
+      padding-bottom: 4px;
+      font-weight: 700;
+    }
+    &__text {
+      display: block;
+      flex: 1;
+      &_full {
+        overflow-y: auto;
+      };
+      &_short {
+        overflow-y: hidden;
+      };
+    }
+    &__time {
+      margin-left: auto;
+      font-weight: 200;
+    }
+}
