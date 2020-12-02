@@ -5,6 +5,7 @@ import { getNews, clearNews } from '../../redux/news';
 import { userLogin, userRole } from '../../redux/user';
 import { loading } from '../../redux/system';
 import User from './User';
+import Admin from './Admin';
 import Loader from '../../components/Loader/Loader';
 import styles from './News.module.scss';
 
@@ -26,6 +27,7 @@ function News() {
     <main className={cx('main')}>
       {isLoading && <Loader />}
       {(role === 'user' || !role) && <User />}
+      {(role === 'admin') && <Admin />}
     </main>
   );
 }

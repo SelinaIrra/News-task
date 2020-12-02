@@ -3,33 +3,42 @@ import {
 } from 'redux-saga/effects';
 import * as actions from './constants';
 import { getAllNewSuccess, getNewsByUserSuccess } from './actions';
-import { getAllNews, getUserNews, createNews as createNewsRequest } from '../../services/api';
+import {
+  getAllApprovedNews, getUserNews, createNews as createNewsRequest, getAllNews,
+} from '../../services/api';
 import { setLoadingStatus, setErrorMessage } from '../system';
-import { userId } from '../user';
+import { userId, userRole } from '../user';
 
 function* getNews({ searchStr }) {
   yield put(setLoadingStatus(true));
   try {
     const ajax = yield getContext('ajax');
     const user = yield select(userId);
-    const newsReqParams = getAllNews(searchStr);
-    const requests = [
-      call(ajax, ...newsReqParams),
-    ];
-    if (user) {
-      requests.push(
-        call(ajax, ...getUserNews(user, searchStr)),
-      );
-    }
-    const response = yield all(requests);
-    yield delay(300);
-    yield* response.map((responseObj) => {
-      const { data } = responseObj;
-      if (responseObj.config.url === newsReqParams[1]) {
-        return put(getAllNewSuccess(data));
+    const role = yield select(userRole);
+    if (role === 'admin') {
+      const response = yield call(ajax,
+        ...getAllNews(searchStr));
+      yield put(getAllNewSuccess(response.data));
+    } else {
+      const newsReqParams = getAllApprovedNews(searchStr);
+      const requests = [
+        call(ajax, ...newsReqParams),
+      ];
+      if (user) {
+        requests.push(
+          call(ajax, ...getUserNews(user, searchStr)),
+        );
       }
-      return put(getNewsByUserSuccess(data));
-    });
+      const response = yield all(requests);
+      yield delay(300);
+      yield* response.map((responseObj) => {
+        const { data } = responseObj;
+        if (responseObj.config.url === newsReqParams[1]) {
+          return put(getAllNewSuccess(data));
+        }
+        return put(getNewsByUserSuccess(data));
+      });
+    }
   } catch (e) {
     yield put(setErrorMessage('Ошибка получения данных'));
   } finally {

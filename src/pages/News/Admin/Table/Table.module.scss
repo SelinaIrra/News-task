@@ -1,0 +1,26 @@
+.table {
+    & th {
+        font-weight: 600;
+    }
+    &__tr > td {
+        padding: 10px;
+        border-bottom: 1px solid #ebebee;
+    }
+    &__actions {
+        min-width: 90px;
+        &__button {
+            margin: 5px;
+            background: transparent;
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 20px;
+            height: 20px;
+        }
+        &__button-approve {
+            background-image: url(../../../../style/images/like.png);
+        }
+        &__button-remove {
+            background-image: url(../../../../style/images/delete.png);
+        }
+    }
+}
