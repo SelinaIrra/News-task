@@ -1,0 +1,39 @@
+.overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: rgba(0, 0, 0, 0.3);
+  &__modal {
+    width: 500px;
+    height: 300px;
+    border: 2px solid #ebebee;
+    border-radius: 2px;
+    background-color: #fff;
+    padding: 6px;
+    &__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      &__button {
+        width: 14px;
+        height: 14px;
+        background-color: transparent;
+        background-image: url(../../style/images/cancel.svg);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      &__title {
+        font-weight: 700;
+        font-size: 20px;
+        color: #282c34;
+      }
+    }
+  }
+}

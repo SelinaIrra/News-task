@@ -1,33 +1,33 @@
 .header {
-    background-color: #282c34;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 30px;
-    &__nav {
-        &__ul {
-            display: flex;
-            &__li {
-                padding-right: 30px;
-                & a {
-                    text-decoration: none;
-                    color: white;
-                }
-                &__active {
-                    border-bottom: 3px solid #61dafb;
-                }
-            }
+  background-color: #282c34;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  &__nav {
+    &__ul {
+      display: flex;
+      &__li {
+        padding-right: 30px;
+        & a {
+          text-decoration: none;
+          color: white;
         }
+        &__active {
+          border-bottom: 3px solid #61dafb;
+        }
+      }
     }
-    &__button {
-        background-color: #61dafb;
-        color: #000000;
-        &:hover {
-            background-color: #fff;
-            transition: 0.5s;
-        }
-        &:not(:hover) {
-            transition: 0.5s;
-        }
+  }
+  &__button {
+    background-color: #61dafb;
+    color: #000000;
+    &:hover {
+      background-color: #fff;
+      transition: 0.5s;
     }
+    &:not(:hover) {
+      transition: 0.5s;
+    }
+  }
 }
