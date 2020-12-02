@@ -1,12 +1,6 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { logIn } from '../../redux/user';
+import React from 'react';
 
 function App() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(logIn('admin', 'admin'));
-  }, []);
   return (
     <div> App </div>
   );

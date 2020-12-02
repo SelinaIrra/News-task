@@ -15,10 +15,13 @@ function* login({ name, password }) {
       ...getUser(name, password),
     );
     const { data } = responseUserData;
-    yield delay(200);
-    if (!data.length) {
+    yield delay(300);
+    if (data.length) {
+      yield put(logInSuccess(data[0].id, data[0].login));
+      yield put(setErrorMessage(null));
+    } else {
       yield put(setErrorMessage('Пользователь не найден. Проверьте правильность введенных данных.'));
-    } else yield put(logInSuccess(data[0].id, data[0].login));
+    }
   } catch (e) {
     yield put(setErrorMessage('Ajax Error'));
   } finally {

@@ -13,21 +13,10 @@
           text-decoration: none;
           color: white;
         }
-        &__active {
+        &_active {
           border-bottom: 3px solid #61dafb;
         }
       }
-    }
-  }
-  &__button {
-    background-color: #61dafb;
-    color: #000000;
-    &:hover {
-      background-color: #fff;
-      transition: 0.5s;
-    }
-    &:not(:hover) {
-      transition: 0.5s;
     }
   }
 }

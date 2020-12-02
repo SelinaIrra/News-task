@@ -1,0 +1,13 @@
+.auth {
+  &__button {
+    background-color: #61dafb;
+    color: #000000;
+    &:hover {
+      background-color: #fff;
+      transition: 0.5s;
+    }
+    &:not(:hover) {
+      transition: 0.5s;
+    }
+  }
+}

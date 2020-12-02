@@ -10,16 +10,18 @@
   bottom: 0px;
   background-color: rgba(0, 0, 0, 0.3);
   &__modal {
-    width: 500px;
-    height: 300px;
+    width: 400px;
+    max-height: 400px;
     border: 2px solid #ebebee;
     border-radius: 2px;
     background-color: #fff;
-    padding: 6px;
     &__header {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      height: 32px;
+      padding: 6px;
+      border-bottom: 1px solid #ebebee;
       &__button {
         width: 14px;
         height: 14px;
