@@ -32,3 +32,23 @@ export function clearNews() {
     type: action.CLEAR_NEWS,
   };
 }
+
+export function createNews(title, text) {
+  return {
+    type: action.CREATE_NEWS,
+    title,
+    text,
+  };
+}
+
+export function deleteNews() {
+  return {
+    type: action.DELETE_NEWS,
+  };
+}
+
+export function updateNews() {
+  return {
+    type: action.UPDATE_NEWS,
+  };
+}

@@ -18,6 +18,7 @@ function AuthForm() {
     <Form
       onSubmit={handleSubmit}
       isValid={loading && password}
+      submitText="Войти"
     >
       <fieldset>
         <legend> Логин </legend>

@@ -3,7 +3,7 @@ import {
 } from 'redux-saga/effects';
 import * as actions from './constants';
 import { getAllNewSuccess, getNewsByUserSuccess } from './actions';
-import { getAllNews, getUserNews } from '../../services/api';
+import { getAllNews, getUserNews, createNews as createNewsRequest } from '../../services/api';
 import { setLoadingStatus, setErrorMessage } from '../system';
 import { userId } from '../user';
 
@@ -31,8 +31,23 @@ function* getNews({ searchStr }) {
       return put(getNewsByUserSuccess(data));
     });
   } catch (e) {
-    yield put(setErrorMessage('Ajax Error'));
+    yield put(setErrorMessage('Ошибка получения данных'));
   } finally {
+    yield put(setLoadingStatus(false));
+  }
+}
+
+function* createNews({ title, text }) {
+  yield put(setLoadingStatus(true));
+  try {
+    const ajax = yield getContext('ajax');
+    const user = yield select(userId);
+    yield call(ajax,
+      ...createNewsRequest(title, text, user));
+    yield delay(300);
+    yield getNews({});
+  } catch (e) {
+    yield put(setErrorMessage('При сохранении произошла ошибка. '));
     yield put(setLoadingStatus(false));
   }
 }
@@ -40,4 +55,5 @@ function* getNews({ searchStr }) {
 export default function* newsSaga() {
   yield takeLatest(actions.GET_NEWS, getNews);
   yield takeLatest(actions.FILTER_NEWS, ({ searchStr }) => getNews({ searchStr }));
+  yield takeLatest(actions.CREATE_NEWS, createNews);
 }

@@ -8,7 +8,9 @@ import styles from './Form.module.scss';
 
 const cx = classnames.bind(styles);
 
-function Form({ onSubmit, isValid, children }) {
+function Form({
+  onSubmit, isValid, submitText, children,
+}) {
   const dispatch = useDispatch();
   const isLoading = useSelector(loading);
   const errorMessage = useSelector(error);
@@ -28,7 +30,7 @@ function Form({ onSubmit, isValid, children }) {
         className={cx('form__button')}
         disabled={isLoading || !isValid}
       >
-        Войти
+        {submitText}
       </button>
       { errorMessage && <p className={cx('form__error')}>{errorMessage}</p> }
     </form>

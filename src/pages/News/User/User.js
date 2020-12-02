@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import classnames from 'classnames/bind';
 import ItemList from '../../../components/ItemList';
@@ -18,6 +18,12 @@ const User = () => {
   const userDraftNews = useSelector(draftNews);
   const role = useSelector(userRole);
   const isLoading = useSelector(loading);
+
+  useEffect(() => {
+    if (userDraftNews.length > 0 && modalIsOpen) {
+      setModalIsOpen(false);
+    }
+  }, [userDraftNews]);
 
   return (
     <>

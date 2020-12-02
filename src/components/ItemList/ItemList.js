@@ -11,7 +11,8 @@ function ItemList({ items }) {
   return (
     <div className={cx('list')}>
       {items.map((item) => (
-        <Item data={item} key={item.id} />
+        // eslint-disable-next-line no-underscore-dangle
+        <Item data={item} key={item._id} />
       ))}
     </div>
   );

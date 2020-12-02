@@ -13,7 +13,8 @@ function Item({ data }) {
     setTextIsShort(false);
   };
   return (
-    <article key={data.id} className={cx('article')} onClick={handleClick} onKeyDown={handleClick} role="presentation">
+    // eslint-disable-next-line no-underscore-dangle
+    <article key={data._id} className={cx('article')} onClick={handleClick} onKeyDown={handleClick} role="presentation">
       <header className={cx('article__header')}><h3>{data.name}</h3></header>
       <p className={cx(['article__text', textIsShort ? 'article__text_short' : 'article__text_full'])}>{data.text}</p>
       <time className={cx('article__time')}>{data.date}</time>
