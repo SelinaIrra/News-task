@@ -3,9 +3,9 @@ export function getUser(login, password) {
 }
 
 export function getAllNews() {
-  return ['get', '/users?q=status:=approved'];
+  return ['get', '/news?q=status:approved'];
 }
 
 export function getUserNews(id) {
-  return ['get', `/users?q=status:=panding,author:=${id}`];
+  return ['get', `/news?q=status:pending,author:${id}`];
 }

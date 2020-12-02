@@ -8,11 +8,10 @@ export function logIn(name, password) {
   };
 }
 
-export function logInSuccess(id, login) {
+export function logInSuccess(user) {
   return {
     type: action.LOG_IN_SUCCESS,
-    login,
-    id,
+    user,
   };
 }
 

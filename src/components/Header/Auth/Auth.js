@@ -13,17 +13,17 @@ function Auth() {
   const dispatch = useDispatch();
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
+  const userAuthorized = useSelector(userLogin);
+  useEffect(() => {
+    if (userAuthorized) { setModalIsOpen(false); }
+  }, [userAuthorized]);
+
   const handleLoginClick = () => {
     setModalIsOpen(!modalIsOpen);
   };
   const handleLogoutClick = () => {
     dispatch(logOut());
   };
-
-  const userAuthorized = useSelector(userLogin);
-  useEffect(() => {
-    if (userAuthorized) { setModalIsOpen(false); }
-  }, [userAuthorized]);
 
   return (
     <>

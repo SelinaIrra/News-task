@@ -21,7 +21,11 @@ function Form() {
     dispatch(logIn(name, password));
   };
 
-  useEffect(() => () => dispatch(setErrorMessage(null)), []);
+  const clearError = () => dispatch(setErrorMessage(null));
+  useEffect(() => {
+    clearError();
+    return clearError;
+  }, []);
 
   return (
     <form className={cx('form')}>

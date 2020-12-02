@@ -3,6 +3,7 @@ import * as actions from './constants';
 const initialState = {
   login: '',
   id: null,
+  role: null,
 };
 
 export function userReducer(state = initialState, action) {
@@ -10,8 +11,9 @@ export function userReducer(state = initialState, action) {
     case actions.LOG_IN_SUCCESS: {
       return {
         ...state,
-        login: action.login,
-        id: action.id,
+        login: action.user.login,
+        id: action.user.id,
+        role: action.user.role,
       };
     }
     case actions.LOG_OUT: {
@@ -19,6 +21,7 @@ export function userReducer(state = initialState, action) {
         ...state,
         login: '',
         id: null,
+        role: null,
       };
     }
     default:

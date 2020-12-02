@@ -17,7 +17,7 @@ function* login({ name, password }) {
     const { data } = responseUserData;
     yield delay(300);
     if (data.length) {
-      yield put(logInSuccess(data[0].id, data[0].login));
+      yield put(logInSuccess(data[0]));
       yield put(setErrorMessage(null));
     } else {
       yield put(setErrorMessage('Пользователь не найден. Проверьте правильность введенных данных.'));
