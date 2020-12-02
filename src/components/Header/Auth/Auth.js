@@ -6,6 +6,7 @@ import Form from './Form';
 import { logOut, userLogin } from '../../../redux/user';
 
 import styles from './Auth.module.scss';
+import { clearNews } from '../../../redux/news';
 
 const cx = classnames.bind(styles);
 
@@ -23,6 +24,7 @@ function Auth() {
   };
   const handleLogoutClick = () => {
     dispatch(logOut());
+    dispatch(clearNews());
   };
 
   return (

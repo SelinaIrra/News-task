@@ -7,18 +7,18 @@ import { getAllNews, getUserNews } from '../../services/api';
 import { setLoadingStatus, setErrorMessage } from '../system';
 import { userId } from '../user';
 
-function* getNews() {
+function* getNews({ searchStr }) {
   yield put(setLoadingStatus(true));
   try {
     const ajax = yield getContext('ajax');
     const user = yield select(userId);
-    const newsReqParams = getAllNews();
+    const newsReqParams = getAllNews(searchStr);
     const requests = [
       call(ajax, ...newsReqParams),
     ];
     if (user) {
       requests.push(
-        call(ajax, ...getUserNews(user)),
+        call(ajax, ...getUserNews(user, searchStr)),
       );
     }
     const response = yield all(requests);
@@ -39,4 +39,5 @@ function* getNews() {
 
 export default function* newsSaga() {
   yield takeLatest(actions.GET_NEWS, getNews);
+  yield takeLatest(actions.FILTER_NEWS, ({ searchStr }) => getNews({ searchStr }));
 }

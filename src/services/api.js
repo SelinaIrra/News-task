@@ -2,10 +2,10 @@ export function getUser(login, password) {
   return ['get', `/users?q=login:${login},password:${password}`];
 }
 
-export function getAllNews() {
-  return ['get', '/news?q=status:approved'];
+export function getAllNews(filter) {
+  return ['get', `/news?q=status:approved${filter ? `,name:*${filter}*` : ''}`];
 }
 
-export function getUserNews(id) {
-  return ['get', `/news?q=status:pending,author:${id}`];
+export function getUserNews(id, filter) {
+  return ['get', `/news?q=status:pending,author:${id}${filter ? `,name:*${filter}*` : ''}`];
 }

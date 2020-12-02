@@ -5,7 +5,6 @@ import { logIn } from '../../../../redux/user';
 import { loading, error, setErrorMessage } from '../../../../redux/system';
 
 import styles from './Form.module.scss';
-import Loader from '../../../Loader/Loader';
 
 const cx = classnames.bind(styles);
 
@@ -54,7 +53,6 @@ function Form() {
       >
         Войти
       </button>
-      {isLoading && <Loader />}
       { errorMessage && <p className={cx('form__error')}>{errorMessage}</p> }
     </form>
   );

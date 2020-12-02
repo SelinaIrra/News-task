@@ -7,9 +7,9 @@ const cx = classnames.bind(styles);
 
 const Loader = () => (
   <div className={cx('loader')}>
-    <span />
-    <span />
-    <span />
+    <span className={cx('loader__item')} />
+    <span className={cx('loader__item')} />
+    <span className={cx('loader__item')} />
   </div>
 );
 

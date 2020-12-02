@@ -1,0 +1,22 @@
+.header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__button {
+    &:hover:enabled {
+      background-color: #61dafb;
+      transition: 0.25s;
+    }
+    &:not(:hover) {
+      transition: 0.25s;
+    }
+  }
+}
+
+.main {
+  opacity: 0.5;
+  border-bottom: 4px dotted #ebebee;
+  border-top: 4px dotted #ebebee;
+  padding-bottom: 20px;
+}

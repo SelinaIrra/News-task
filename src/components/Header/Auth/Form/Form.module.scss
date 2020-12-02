@@ -8,11 +8,8 @@
     width: 100%;
   }
   &__button {
-    background-color: #61dafb;
-    color: #000000;
     &:hover:enabled {
-      background-color: #282c34;
-      color: #fff;
+      background-color: #61dafb;
       transition: 0.25s;
     }
     &:not(:hover) {
