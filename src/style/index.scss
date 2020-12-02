@@ -25,21 +25,26 @@ button {
   }
 }
 
-input {
-  width: 100%;
-  border: 0;
-  padding: 0 4px;
-  transform: translate(0, -2px);
-}
-
-legend {
-  font-size: 14px;
-  transform: translate(0, -2px);
-  margin: 0 4px;
-}
-
 fieldset {
   border: 1px solid #ebebee;
   border-radius: 2px;
   padding: 4px;
+  
+  & textarea {
+    border: 0;
+    width: 100%;
+  }
+
+  & input {
+    width: 100%;
+    border: 0;
+    padding: 0 4px;
+    transform: translate(0, -2px);
+  }
+  
+  & legend {
+    font-size: 14px;
+    transform: translate(0, -2px);
+    margin: 0 4px;
+  }
 }

@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import classnames from 'classnames/bind';
 import Modal from '../../Modal';
-import Form from './Form';
+import { clearNews } from '../../../redux/news';
+import AuthForm from './AuthForm';
 import { logOut, userLogin } from '../../../redux/user';
 
 import styles from './Auth.module.scss';
-import { clearNews } from '../../../redux/news';
 
 const cx = classnames.bind(styles);
 
@@ -43,7 +43,7 @@ function Auth() {
           title="Вход"
           onClose={() => setModalIsOpen(false)}
         >
-          <Form />
+          <AuthForm />
         </Modal>
       </>
       )) || (
