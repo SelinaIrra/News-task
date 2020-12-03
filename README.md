@@ -12,7 +12,7 @@ SPA для отображения списка новостей.
 Демо:
 --
 
-[https://selinairra.github.io/News-task](https://selinairra.github.io/News-task/demo/index.html)
+[https://selinairra.github.io/News-task](https://selinairra.github.io/News-task/demo/)
 
 Пользователи:
 --

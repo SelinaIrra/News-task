@@ -14,7 +14,7 @@ function Header() {
         <ul className={cx('header__nav__ul')}>
           <li className={cx('header__nav__ul__li')}>
             <NavLink
-              to="/"
+              to="./"
               exact
               activeClassName={cx('header__nav__ul__li_active')}
             >
@@ -23,7 +23,7 @@ function Header() {
           </li>
           <li className={cx('header__nav__ul__li')}>
             <NavLink
-              to="/news"
+              to="./news"
               exact
               activeClassName={cx('header__nav__ul__li_active')}
             >
