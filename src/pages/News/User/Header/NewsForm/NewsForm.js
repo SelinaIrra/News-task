@@ -25,6 +25,7 @@ const NewsForm = () => {
           value={title}
           onChange={(ev) => setTitle(ev.target.value)}
           placeholder="Введите заголовок"
+          maxLength={50}
         />
       </fieldset>
       <fieldset>
@@ -33,6 +34,7 @@ const NewsForm = () => {
           value={text}
           onChange={(ev) => setText(ev.target.value)}
           placeholder="Введите текст"
+          maxLength={6000}
         />
       </fieldset>
     </Form>

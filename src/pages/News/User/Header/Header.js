@@ -6,6 +6,7 @@ import { userRole } from '../../../../redux/user';
 import Modal from '../../../../components/Modal';
 import NewsForm from './NewsForm';
 import styles from '../User.module.scss';
+import { ROLES } from '../../../../constants';
 
 const cx = classnames.bind(styles);
 
@@ -22,7 +23,7 @@ const UserHeader = () => {
 
   return (
     <>
-      {role === 'user' && (
+      {role === ROLES.USER && (
         <button
           type="button"
           className={cx('button')}

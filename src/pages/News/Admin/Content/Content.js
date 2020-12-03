@@ -1,11 +1,13 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  news, draftNews, deleteNews, updateNews,
+  news, draftNews,
+  deleteNews, updateNews,
 } from '../../../../redux/news';
 import Table from './Table';
 import ItemList from '../../../../components/ItemList';
 import { adminContentType } from '../../../../redux/system';
+import { STATUS, ADMIN_CONTENT_TYPE } from '../../../../constants';
 
 const Content = () => {
   const contentType = useSelector(adminContentType);
@@ -14,26 +16,24 @@ const Content = () => {
   const dispatch = useDispatch();
 
   const handleRemove = (item) => {
-    // eslint-disable-next-line no-underscore-dangle
     dispatch(deleteNews(item._id));
   };
 
   const handleUpdate = (item) => {
-    // eslint-disable-next-line no-underscore-dangle
     dispatch(updateNews(item));
   };
 
   return (
     <>
-      {(contentType === 'preview'
-        && <ItemList items={allNews.filter((item) => item.status === 'approved')} />
-      ) || (
-        <Table
-          data={[...userDraftNews, ...allNews]}
-          onRemove={handleRemove}
-          onUpdate={handleUpdate}
-        />
-      )}
+      {contentType === ADMIN_CONTENT_TYPE.PREVIEW
+        ? <ItemList items={allNews.filter((item) => item.status === STATUS.APPROVED)} />
+        : (
+          <Table
+            data={[...userDraftNews, ...allNews]}
+            onRemove={handleRemove}
+            onUpdate={handleUpdate}
+          />
+        )}
     </>
   );
 };

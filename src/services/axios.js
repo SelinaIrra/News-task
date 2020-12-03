@@ -1,5 +1,5 @@
 import axios from 'axios';
-import SOURCE_URL from '../constants/urls';
+import { SOURCE_URL } from '../constants';
 
 const CancelAxiosToken = axios.CancelToken;
 const source = CancelAxiosToken.source();

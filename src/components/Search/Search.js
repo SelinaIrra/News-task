@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import classnames from 'classnames/bind';
 import search from '../../style/images/search.png';
@@ -9,7 +8,6 @@ const cx = classnames.bind(styles);
 const Search = ({ onSearch, isEmptyValue }) => {
   const [isChanged, setChanged] = useState(false);
   const [searchValue, setSearchVal] = useState('');
-  // eslint-disable-next-line no-undef
   const [timeout, setNewTimeout] = useState(null);
 
   useEffect(() => () => {

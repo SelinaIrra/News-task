@@ -59,9 +59,9 @@ export function updateNews(news) {
   };
 }
 
-export function setTotalCountOnPage(value) {
+export function setLastPage(value) {
   return {
-    type: action.TOTAL_COUNT_ON_PAGE,
+    type: action.SET_LAST_PAGE,
     value,
   };
 }

@@ -1,9 +1,10 @@
 import * as actions from './constants';
+import { ROLES } from '../../constants';
 
 const initialState = {
   login: '',
   id: null,
-  role: null,
+  role: ROLES.GUEST,
 };
 
 export function userReducer(state = initialState, action) {
@@ -21,7 +22,7 @@ export function userReducer(state = initialState, action) {
         ...state,
         login: '',
         id: null,
-        role: null,
+        role: ROLES.GUEST,
       };
     }
     default:

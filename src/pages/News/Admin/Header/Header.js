@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import classnames from 'classnames/bind';
 import { adminContentType, setAdminContentType } from '../../../../redux/system';
 import styles from '../Admin.module.scss';
+import { ADMIN_CONTENT_TYPE } from '../../../../constants';
 
 const cx = classnames.bind(styles);
 
@@ -12,11 +13,11 @@ const Header = () => {
 
   return (
     <>
-      {contentType === 'preview' ? (
+      {contentType === ADMIN_CONTENT_TYPE.PREVIEW ? (
         <button
           type="button"
           className={cx('button')}
-          onClick={() => dispatch(setAdminContentType('table'))}
+          onClick={() => dispatch(setAdminContentType(ADMIN_CONTENT_TYPE.TABLE))}
         >
           Назад
         </button>
@@ -24,7 +25,7 @@ const Header = () => {
         <button
           type="button"
           className={cx('button')}
-          onClick={() => dispatch(setAdminContentType('preview'))}
+          onClick={() => dispatch(setAdminContentType(ADMIN_CONTENT_TYPE.PREVIEW))}
         >
           Предварительный просмотр
         </button>

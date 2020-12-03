@@ -2,18 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import classnames from 'classnames/bind';
 import {
-  getNews, clearNews, filterNews, isTotalCountOnPage, emptyNews,
+  getNews, clearNews, filterNews, isLastPage, emptyNews,
 } from '../../redux/news';
 import { userLogin, userRole } from '../../redux/user';
 import { loading } from '../../redux/system';
-import UserMain from './User/Content';
+import UserContent from './User/Content';
 import UserHeader from './User/Header';
-import AdminMain from './Admin/Content';
+import AdminContent from './Admin/Content';
 import AdminHeader from './Admin/Header';
 import Loader from '../../components/Loader/Loader';
 import styles from './News.module.scss';
 import LazyLoading from '../../components/LazyLoading/LazyLoading';
 import Search from '../../components/Search/Search';
+import { ROLES, LIMIT } from '../../constants';
 
 const cx = classnames.bind(styles);
 
@@ -24,7 +25,7 @@ function News() {
   const user = useSelector(userLogin);
   const isLoading = useSelector(loading);
   const role = useSelector(userRole);
-  const isTotalCount = useSelector(isTotalCountOnPage);
+  const lastPage = useSelector(isLastPage);
   const isEmptyNews = useSelector(emptyNews);
 
   const clearParams = () => {
@@ -43,13 +44,13 @@ function News() {
   }, []);
 
   const handleScroll = () => {
-    if (isTotalCount || isEmptyNews) return;
+    if (lastPage || isEmptyNews) return;
     if (searchValue) {
-      dispatch(filterNews(searchValue, offset + 30));
+      dispatch(filterNews(searchValue, offset + LIMIT));
     } else {
-      dispatch(getNews(offset + 30));
+      dispatch(getNews(offset + LIMIT));
     }
-    setOffset(offset + 30);
+    setOffset(offset + LIMIT);
   };
 
   const handleSearch = (searchStr) => {
@@ -65,18 +66,15 @@ function News() {
   return (
     <main className={cx('main')}>
       {isLoading && <Loader />}
+      <div className={cx('main__header')}>
+        <Search
+          onSearch={handleSearch}
+          isEmptyValue={!searchValue}
+        />
+        {(role === ROLES.ADMIN) ? <AdminHeader /> : <UserHeader />}
+      </div>
       <LazyLoading onScroll={handleScroll}>
-        <div className={cx('main__header')}>
-          <Search
-            onSearch={handleSearch}
-            isEmptyValue={!searchValue}
-          />
-          {(role === 'user' || !role) && <UserHeader />}
-          {(role === 'admin') && <AdminHeader />}
-        </div>
-
-        {(role === 'user' || !role) && <UserMain />}
-        {(role === 'admin') && <AdminMain />}
+        {(role === ROLES.ADMIN) ? <AdminContent /> : <UserContent />}
       </LazyLoading>
     </main>
   );

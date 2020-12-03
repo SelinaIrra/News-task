@@ -20,8 +20,9 @@ function Auth() {
   }, [userAuthorized]);
 
   const handleLoginClick = () => {
-    setModalIsOpen(!modalIsOpen);
+    setModalIsOpen(true);
   };
+
   const handleLogoutClick = () => {
     dispatch(logOut());
     dispatch(clearNews());
@@ -29,32 +30,22 @@ function Auth() {
 
   return (
     <>
-      {(!userAuthorized && (
-      <>
-        <button
-          type="button"
-          className={cx('auth__button')}
-          onClick={handleLoginClick}
-        >
-          Вход
-        </button>
-        <Modal
-          isOpen={modalIsOpen}
-          title="Вход"
-          onClose={() => setModalIsOpen(false)}
-        >
-          <AuthForm />
-        </Modal>
-      </>
-      )) || (
       <button
         type="button"
         className={cx('auth__button')}
-        onClick={handleLogoutClick}
+        onClick={userAuthorized ? handleLogoutClick : handleLoginClick}
       >
-        Выход
+        {userAuthorized ? 'Выход' : 'Вход'}
       </button>
-      )}
+
+      <Modal
+        isOpen={modalIsOpen}
+        title="Вход"
+        onClose={() => setModalIsOpen(false)}
+      >
+        <AuthForm />
+      </Modal>
+
     </>
   );
 }

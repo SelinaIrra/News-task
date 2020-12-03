@@ -3,7 +3,7 @@ import * as actions from './constants';
 const initialState = {
   news: [],
   draftNews: [],
-  isTotal: false,
+  isLastPage: false,
 };
 
 export function newsReducer(state = initialState, action) {
@@ -27,10 +27,10 @@ export function newsReducer(state = initialState, action) {
         draftNews: [],
       };
     }
-    case actions.TOTAL_COUNT_ON_PAGE: {
+    case actions.SET_LAST_PAGE: {
       return {
         ...state,
-        isTotal: action.value,
+        isLastPage: action.value,
       };
     }
     default:

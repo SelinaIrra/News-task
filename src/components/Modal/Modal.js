@@ -8,7 +8,6 @@ import styles from './Modal.module.scss';
 const cx = classnames.bind(styles);
 
 function Modal({
-  // eslint-disable-next-line react/prop-types
   isOpen, onClose, title, children,
 }) {
   useEffect(() => {

@@ -1,9 +1,10 @@
 import * as actions from './constants';
+import { ADMIN_CONTENT_TYPE } from '../../constants';
 
 const initialState = {
   isLoading: false,
   error: null,
-  adminContentType: 'table',
+  adminContentType: ADMIN_CONTENT_TYPE.TABLE,
 };
 
 export function systemReducer(state = initialState, action) {

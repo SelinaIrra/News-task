@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
-/* eslint-disable react/prop-types */
 import React from 'react';
 import classnames from 'classnames/bind';
 import styles from './Table.module.scss';
+import { STATUS } from '../../../../../constants';
 
 const cx = classnames.bind(styles);
 
@@ -18,7 +18,6 @@ const Table = ({ data, onRemove, onUpdate }) => (
     </thead>
     <tbody>
       {data.map((item) => (
-        // eslint-disable-next-line no-underscore-dangle
         <tr key={item._id} className={cx('table__tr')}>
           <td>{item.name}</td>
           <td>{item.text}</td>
@@ -29,7 +28,7 @@ const Table = ({ data, onRemove, onUpdate }) => (
               type="button"
               className={cx(['table__actions__button', 'table__actions__button-remove'])}
             />
-            {item.status === 'pending' && (
+            {item.status === STATUS.PENDING && (
               <button
                 onClick={() => onUpdate(item)}
                 type="button"
