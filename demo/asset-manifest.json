@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/News-task/demo/static/css/main.655ea6c8.chunk.css",
+    "main.js": "/News-task/demo/static/js/main.72b42184.chunk.js",
+    "main.js.map": "/News-task/demo/static/js/main.72b42184.chunk.js.map",
+    "runtime-main.js": "/News-task/demo/static/js/runtime-main.963acf71.js",
+    "runtime-main.js.map": "/News-task/demo/static/js/runtime-main.963acf71.js.map",
+    "static/js/2.7fb137a4.chunk.js": "/News-task/demo/static/js/2.7fb137a4.chunk.js",
+    "static/js/2.7fb137a4.chunk.js.map": "/News-task/demo/static/js/2.7fb137a4.chunk.js.map",
+    "index.html": "/News-task/demo/index.html",
+    "static/css/main.655ea6c8.chunk.css.map": "/News-task/demo/static/css/main.655ea6c8.chunk.css.map",
+    "static/js/2.7fb137a4.chunk.js.LICENSE.txt": "/News-task/demo/static/js/2.7fb137a4.chunk.js.LICENSE.txt",
+    "static/media/Modal.module.scss": "/News-task/demo/static/media/cancel.4d97fcb1.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.963acf71.js",
+    "static/js/2.7fb137a4.chunk.js",
+    "static/css/main.655ea6c8.chunk.css",
+    "static/js/main.72b42184.chunk.js"
+  ]
+}
