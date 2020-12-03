@@ -14,6 +14,7 @@
   }
   &__text {
     display: block;
+    white-space: break-spaces;
     flex: 1;
     &_full {
       overflow-y: auto;
