@@ -7,3 +7,4 @@ export const CREATE_NEWS = 'CREATE_NEWS';
 export const DELETE_NEWS = 'DELETE_NEWS';
 export const UPDATE_NEWS = 'UPDATE_NEWS';
 export const SET_LAST_PAGE = 'SET_LAST_PAGE';
+export const SET_OFFSET = 'SET_OFFSET';

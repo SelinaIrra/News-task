@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "https://selinairra.github.io/News-task/demo/static/css/main.7d030e56.chunk.css",
-    "main.js": "https://selinairra.github.io/News-task/demo/static/js/main.92781174.chunk.js",
-    "main.js.map": "https://selinairra.github.io/News-task/demo/static/js/main.92781174.chunk.js.map",
+    "main.js": "https://selinairra.github.io/News-task/demo/static/js/main.9f5dcc51.chunk.js",
+    "main.js.map": "https://selinairra.github.io/News-task/demo/static/js/main.9f5dcc51.chunk.js.map",
     "runtime-main.js": "https://selinairra.github.io/News-task/demo/static/js/runtime-main.5b988eda.js",
     "runtime-main.js.map": "https://selinairra.github.io/News-task/demo/static/js/runtime-main.5b988eda.js.map",
-    "static/js/2.45f98aad.chunk.js": "https://selinairra.github.io/News-task/demo/static/js/2.45f98aad.chunk.js",
-    "static/js/2.45f98aad.chunk.js.map": "https://selinairra.github.io/News-task/demo/static/js/2.45f98aad.chunk.js.map",
+    "static/js/2.280767b8.chunk.js": "https://selinairra.github.io/News-task/demo/static/js/2.280767b8.chunk.js",
+    "static/js/2.280767b8.chunk.js.map": "https://selinairra.github.io/News-task/demo/static/js/2.280767b8.chunk.js.map",
     "index.html": "https://selinairra.github.io/News-task/demo/index.html",
     "static/css/main.7d030e56.chunk.css.map": "https://selinairra.github.io/News-task/demo/static/css/main.7d030e56.chunk.css.map",
-    "static/js/2.45f98aad.chunk.js.LICENSE.txt": "https://selinairra.github.io/News-task/demo/static/js/2.45f98aad.chunk.js.LICENSE.txt",
+    "static/js/2.280767b8.chunk.js.LICENSE.txt": "https://selinairra.github.io/News-task/demo/static/js/2.280767b8.chunk.js.LICENSE.txt",
     "static/media/Modal.module.scss": "https://selinairra.github.io/News-task/demo/static/media/cancel.4d97fcb1.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.5b988eda.js",
-    "static/js/2.45f98aad.chunk.js",
+    "static/js/2.280767b8.chunk.js",
     "static/css/main.7d030e56.chunk.css",
-    "static/js/main.92781174.chunk.js"
+    "static/js/main.9f5dcc51.chunk.js"
   ]
 }

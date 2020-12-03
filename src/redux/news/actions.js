@@ -65,3 +65,10 @@ export function setLastPage(value) {
     value,
   };
 }
+
+export function setOffset(value) {
+  return {
+    type: action.SET_OFFSET,
+    value,
+  };
+}

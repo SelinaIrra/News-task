@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   news, draftNews,
-  deleteNews, updateNews,
+  deleteNews, updateNews, setOffset,
 } from '../../../../redux/news';
 import Table from './Table';
 import ItemList from '../../../../components/ItemList';
@@ -16,10 +16,12 @@ const Content = () => {
   const dispatch = useDispatch();
 
   const handleRemove = (item) => {
+    dispatch(setOffset(0));
     dispatch(deleteNews(item._id));
   };
 
   const handleUpdate = (item) => {
+    dispatch(setOffset(0));
     dispatch(updateNews(item));
   };
 

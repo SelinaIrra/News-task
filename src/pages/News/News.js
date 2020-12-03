@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import classnames from 'classnames/bind';
 import {
-  getNews, clearNews, filterNews, isLastPage, emptyNews,
+  getNews, clearNews, filterNews, isLastPage, emptyNews, offset, setOffset,
 } from '../../redux/news';
 import { userLogin, userRole } from '../../redux/user';
 import { loading } from '../../redux/system';
@@ -19,7 +19,6 @@ import { ROLES, LIMIT } from '../../constants';
 const cx = classnames.bind(styles);
 
 function News() {
-  const [offset, setOffset] = useState(0);
   const [searchValue, setSearchValue] = useState('');
   const dispatch = useDispatch();
   const user = useSelector(userLogin);
@@ -27,10 +26,10 @@ function News() {
   const role = useSelector(userRole);
   const lastPage = useSelector(isLastPage);
   const isEmptyNews = useSelector(emptyNews);
+  const newsOffset = useSelector(offset);
 
   const clearParams = () => {
-    setOffset(0);
-
+    dispatch(setOffset(0));
     setSearchValue('');
   };
   useEffect(() => {
@@ -46,16 +45,16 @@ function News() {
   const handleScroll = () => {
     if (lastPage || isEmptyNews) return;
     if (searchValue) {
-      dispatch(filterNews(searchValue, offset + LIMIT));
+      dispatch(filterNews(searchValue, newsOffset + LIMIT));
     } else {
-      dispatch(getNews(offset + LIMIT));
+      dispatch(getNews(newsOffset + LIMIT));
     }
-    setOffset(offset + LIMIT);
+    dispatch(setOffset(newsOffset + LIMIT));
   };
 
   const handleSearch = (searchStr) => {
     setSearchValue(searchStr);
-    setOffset(0);
+    dispatch(setOffset(0));
     if (searchStr) {
       dispatch(filterNews(searchStr));
     } else {

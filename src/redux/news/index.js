@@ -4,6 +4,7 @@ const initialState = {
   news: [],
   draftNews: [],
   isLastPage: false,
+  offset: 0,
 };
 
 export function newsReducer(state = initialState, action) {
@@ -31,6 +32,12 @@ export function newsReducer(state = initialState, action) {
       return {
         ...state,
         isLastPage: action.value,
+      };
+    }
+    case actions.SET_OFFSET: {
+      return {
+        ...state,
+        offset: action.value,
       };
     }
     default:
