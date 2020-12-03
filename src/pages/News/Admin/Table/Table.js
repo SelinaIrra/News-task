@@ -6,7 +6,7 @@ import styles from './Table.module.scss';
 
 const cx = classnames.bind(styles);
 
-const Table = ({ data }) => (
+const Table = ({ data, onRemove, onUpdate }) => (
   <table className={cx('table')}>
     <thead>
       <tr>
@@ -25,11 +25,13 @@ const Table = ({ data }) => (
           <td>{item.date}</td>
           <td className={cx('table__actions')}>
             <button
+              onClick={() => onRemove(item)}
               type="button"
               className={cx(['table__actions__button', 'table__actions__button-remove'])}
             />
             {item.status === 'pending' && (
               <button
+                onClick={() => onUpdate(item)}
                 type="button"
                 className={cx(['table__actions__button', 'table__actions__button-approve'])}
               />

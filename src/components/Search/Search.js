@@ -41,7 +41,7 @@ const Search = () => {
       <input
         value={searchValue}
         onChange={handleChange}
-        placeholder="Поиск..."
+        placeholder="Поиск по заголовкам..."
       />
       <img alt="search" src={search} />
     </div>

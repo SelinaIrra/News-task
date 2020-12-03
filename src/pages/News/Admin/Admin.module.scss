@@ -1,3 +1,16 @@
-.search {
+.header {
     padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    &__button {
+      &:hover:enabled {
+        background-color: #61dafb;
+        transition: 0.25s;
+      }
+      &:not(:hover) {
+        transition: 0.25s;
+      }
+    }
 }

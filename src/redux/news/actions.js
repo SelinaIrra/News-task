@@ -41,14 +41,16 @@ export function createNews(title, text) {
   };
 }
 
-export function deleteNews() {
+export function deleteNews(id) {
   return {
     type: action.DELETE_NEWS,
+    id,
   };
 }
 
-export function updateNews() {
+export function updateNews(news) {
   return {
     type: action.UPDATE_NEWS,
+    news,
   };
 }

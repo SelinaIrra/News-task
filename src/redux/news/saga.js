@@ -4,7 +4,10 @@ import {
 import * as actions from './constants';
 import { getAllNewSuccess, getNewsByUserSuccess } from './actions';
 import {
-  getAllApprovedNews, getUserNews, createNews as createNewsRequest, getAllNews,
+  getAllApprovedNews, getUserNews,
+  createNews as createNewsRequest,
+  getAllNews, deleteNews as deleteNewsRequest,
+  updateNews as updateNewsRequest,
 } from '../../services/api';
 import { setLoadingStatus, setErrorMessage } from '../system';
 import { userId, userRole } from '../user';
@@ -61,8 +64,36 @@ function* createNews({ title, text }) {
   }
 }
 
+function* deleteNews({ id }) {
+  yield put(setLoadingStatus(true));
+  try {
+    const ajax = yield getContext('ajax');
+    yield call(ajax,
+      ...deleteNewsRequest(id));
+    yield delay(300);
+    yield getNews({});
+  } catch (e) {
+    yield put(setLoadingStatus(false));
+  }
+}
+
+function* updateNews({ news }) {
+  yield put(setLoadingStatus(true));
+  try {
+    const ajax = yield getContext('ajax');
+    yield call(ajax,
+      ...updateNewsRequest(news));
+    yield delay(300);
+    yield getNews({});
+  } catch (e) {
+    yield put(setLoadingStatus(false));
+  }
+}
+
 export default function* newsSaga() {
   yield takeLatest(actions.GET_NEWS, getNews);
   yield takeLatest(actions.FILTER_NEWS, ({ searchStr }) => getNews({ searchStr }));
   yield takeLatest(actions.CREATE_NEWS, createNews);
+  yield takeLatest(actions.DELETE_NEWS, deleteNews);
+  yield takeLatest(actions.UPDATE_NEWS, updateNews);
 }
