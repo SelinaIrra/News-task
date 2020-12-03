@@ -1,6 +1,8 @@
+@import '../../../style/utils.scss';
+
 .button {
   &:hover:enabled {
-    background-color: #61dafb;
+    background-color: $colorBlue;
     transition: 0.25s;
   }
   &:not(:hover) {

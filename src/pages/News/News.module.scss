@@ -1,10 +1,10 @@
+@import '../../style/utils.scss';
+
 .main {
   padding: 20px;
     &__header {
     padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flex(space-between, center);
     flex-wrap: wrap;
   }
 }

@@ -1,6 +1,7 @@
+@import '../../style/utils.scss';
+
 .home {
-    display: flex;
-    justify-content: center;
+    @include flex(center, flex-start);
     padding: 20px;
     &__title {
         font-size: 18px;

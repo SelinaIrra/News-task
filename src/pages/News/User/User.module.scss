@@ -1,13 +1,15 @@
+@import '../../../style/utils.scss';
+
 .main {
   opacity: 0.5;
-  border-bottom: 4px dotted #ebebee;
-  border-top: 4px dotted #ebebee;
+  border-bottom: 4px dotted $colorLightGrey;
+  border-top: 4px dotted $colorLightGrey;
   padding-bottom: 20px;
 }
 
 .button {
   &:hover:enabled {
-    background-color: #61dafb;
+    background-color: $colorBlue;
     transition: 0.25s;
   }
   &:not(:hover) {

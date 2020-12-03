@@ -1,0 +1,10 @@
+$colorBlue: #61dafb;
+$colorDark: #282c34;
+$colorRed: #721c24;
+$colorLightGrey: #ebebee;
+
+@mixin flex($content, $items) {
+    display: flex;
+    justify-content: $content;
+    align-items: $items;
+}

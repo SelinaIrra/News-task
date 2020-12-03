@@ -1,7 +1,7 @@
+@import '../../style/utils.scss';
+
 .overlay {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex(center, center);
   padding: 20px;
   position: fixed;
   top: 0px;
@@ -12,16 +12,14 @@
   &__modal {
     width: 400px;
     max-height: 400px;
-    border: 2px solid #ebebee;
+    border: 2px solid $colorLightGrey;
     border-radius: 2px;
     background-color: #fff;
     &__header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      @include flex(space-between, center);
       height: 32px;
       padding: 6px;
-      border-bottom: 1px solid #ebebee;
+      border-bottom: 1px solid $colorLightGrey;
       &__button {
         width: 14px;
         height: 14px;
@@ -34,7 +32,7 @@
       &__title {
         font-weight: 700;
         font-size: 20px;
-        color: #282c34;
+        color: $colorDark;
       }
     }
   }

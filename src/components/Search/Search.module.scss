@@ -1,7 +1,7 @@
+@import '../../style/utils.scss';
+
 .search {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex(center, center);
     flex: 1;
     max-width: 500px;
     box-sizing: border-box;

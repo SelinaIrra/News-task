@@ -1,6 +1,6 @@
+@import '../../style/utils.scss';
+
 .list {
-  display: flex;
-  align-items: center;
+  @include flex(center, center);
   flex-wrap: wrap;
-  justify-content: center;
 }
