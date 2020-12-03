@@ -6,6 +6,7 @@ import store from './redux/store';
 import App from './pages/App';
 import News from './pages/News';
 import Header from './components/Header';
+import './services/utils';
 import './style/index.scss';
 
 ReactDOM.render(

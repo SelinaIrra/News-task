@@ -19,7 +19,7 @@ export function createNews(title, text, user) {
     name: `${title}`,
     author: `${user}`,
     status: 'pending',
-    date: (new Date()).toLocaleString('en-US'),
+    date: (new Date()).formatedDateTime(),
     text,
   }];
 }
@@ -34,7 +34,7 @@ export function updateNews(data) {
     name: `${data.name}`,
     author: `${data.author}`,
     status: 'approved',
-    date: (new Date()).toLocaleString('en-US'),
+    date: (new Date()).formatedDateTime(),
     text: `${data.text}`,
   }];
 }
