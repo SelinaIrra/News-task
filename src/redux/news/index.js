@@ -3,6 +3,7 @@ import * as actions from './constants';
 const initialState = {
   news: [],
   draftNews: [],
+  isTotal: false,
 };
 
 export function newsReducer(state = initialState, action) {
@@ -10,13 +11,13 @@ export function newsReducer(state = initialState, action) {
     case actions.GET_ALL_NEWS_SUCCESS: {
       return {
         ...state,
-        news: action.news,
+        news: action.offset ? [...state.news, ...action.news] : action.news,
       };
     }
     case actions.GET_NEWS_BY_USER_SUCCESS: {
       return {
         ...state,
-        draftNews: action.news,
+        draftNews: action.offset ? [...state.draftNews, ...action.news] : action.news,
       };
     }
     case actions.CLEAR_NEWS: {
@@ -24,6 +25,12 @@ export function newsReducer(state = initialState, action) {
         ...state,
         news: [],
         draftNews: [],
+      };
+    }
+    case actions.TOTAL_COUNT_ON_PAGE: {
+      return {
+        ...state,
+        isTotal: action.value,
       };
     }
     default:

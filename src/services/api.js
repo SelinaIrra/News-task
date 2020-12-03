@@ -2,16 +2,16 @@ export function getUser(login, password) {
   return ['get', `/users?q=login:${login},password:${password}`];
 }
 
-export function getAllApprovedNews(filter) {
-  return ['get', `/news?sort=-date,q=status:approved${filter ? `,name:*${filter}*` : ''}`];
+export function getAllApprovedNews(offset, filter) {
+  return ['get', `/news?limit=30&skip=${offset}&sort=-date&q=status:approved${filter ? `,name:*${filter}*` : ''}`];
 }
 
-export function getUserNews(id, filter) {
-  return ['get', `/news?sort=-date,q=status:pending,author:${id}${filter ? `,name:*${filter}*` : ''}`];
+export function getUserNews(offset, id, filter) {
+  return ['get', `/news?limit=30&skip=${offset}&sort=-date&q=status:pending,author:${id}${filter ? `,name:*${filter}*` : ''}`];
 }
 
-export function getAllNews(filter) {
-  return ['get', `/news?sort=-date${filter ? `,name:*${filter}*` : ''}`];
+export function getAllNews(offset, filter) {
+  return ['get', `/news?limit=30&skip=${offset}&sort=-date${filter ? `&q=name:*${filter}*` : ''}`];
 }
 
 export function createNews(title, text, user) {

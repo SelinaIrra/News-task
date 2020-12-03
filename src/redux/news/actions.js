@@ -1,29 +1,33 @@
 import * as action from './constants';
 
-export function getNews() {
+export function getNews(offset) {
   return {
     type: action.GET_NEWS,
+    offset,
   };
 }
 
-export function getAllNewSuccess(news) {
+export function getAllNewSuccess(news, offset) {
   return {
     type: action.GET_ALL_NEWS_SUCCESS,
     news,
+    offset,
   };
 }
 
-export function getNewsByUserSuccess(news) {
+export function getNewsByUserSuccess(news, offset) {
   return {
     type: action.GET_NEWS_BY_USER_SUCCESS,
     news,
+    offset,
   };
 }
 
-export function filterNews(searchStr) {
+export function filterNews(searchStr, offset) {
   return {
     type: action.FILTER_NEWS,
     searchStr,
+    offset,
   };
 }
 
@@ -52,5 +56,12 @@ export function updateNews(news) {
   return {
     type: action.UPDATE_NEWS,
     news,
+  };
+}
+
+export function setTotalCountOnPage(value) {
+  return {
+    type: action.TOTAL_COUNT_ON_PAGE,
+    value,
   };
 }

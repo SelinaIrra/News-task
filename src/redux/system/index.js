@@ -3,6 +3,7 @@ import * as actions from './constants';
 const initialState = {
   isLoading: false,
   error: null,
+  adminContentType: 'table',
 };
 
 export function systemReducer(state = initialState, action) {
@@ -17,6 +18,12 @@ export function systemReducer(state = initialState, action) {
       return {
         ...state,
         isLoading: action.value,
+      };
+    }
+    case actions.SET_ADMIN_CONTENT_TYPE: {
+      return {
+        ...state,
+        adminContentType: action.value,
       };
     }
     default:

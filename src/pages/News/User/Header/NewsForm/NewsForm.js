@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import Form from '../../../../components/Form';
-import { createNews } from '../../../../redux/news';
+import Form from '../../../../../components/Form';
+import { createNews } from '../../../../../redux/news';
 
 const NewsForm = () => {
   const [title, setTitle] = useState('');

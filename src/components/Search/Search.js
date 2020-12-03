@@ -1,18 +1,16 @@
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import classnames from 'classnames/bind';
 import search from '../../style/images/search.png';
 import styles from './Search.module.scss';
-import { filterNews, getNews } from '../../redux/news';
 
 const cx = classnames.bind(styles);
 
-const Search = () => {
+const Search = ({ onSearch, isEmptyValue }) => {
   const [isChanged, setChanged] = useState(false);
   const [searchValue, setSearchVal] = useState('');
   // eslint-disable-next-line no-undef
   const [timeout, setNewTimeout] = useState(null);
-  const dispatch = useDispatch();
 
   useEffect(() => () => {
     if (timeout) {
@@ -21,13 +19,13 @@ const Search = () => {
   }, [timeout]);
 
   useEffect(() => {
+    if (isEmptyValue) setSearchVal('');
+  }, [isEmptyValue]);
+
+  useEffect(() => {
     if (!isChanged) return;
     setNewTimeout(setTimeout(() => {
-      if (searchValue) {
-        dispatch(filterNews(searchValue));
-      } else {
-        dispatch(getNews());
-      }
+      onSearch(searchValue);
     }, 500));
   }, [searchValue]);
 

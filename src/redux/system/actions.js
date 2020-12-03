@@ -13,3 +13,10 @@ export function setLoadingStatus(value) {
     value,
   };
 }
+
+export function setAdminContentType(value) {
+  return {
+    type: action.SET_ADMIN_CONTENT_TYPE,
+    value,
+  };
+}
