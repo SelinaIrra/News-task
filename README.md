@@ -1,7 +1,3 @@
-**News-Task**
---
-
-SPA для отображения списка новостей.
 
 Запуск:
 --
@@ -9,10 +5,6 @@ SPA для отображения списка новостей.
 
 `npm start`
 
-Демо:
---
-
-[https://selinairra.github.io/News-task/demo](https://selinairra.github.io/News-task/demo/)
 
 Пользователи:
 --
@@ -31,6 +23,4 @@ curl -X POST 'https://jsonbox.io/box_de89fb56d9db75789047/users' \
 
 В качестве back-end используется [jsonbox](https://github.com/vasanthv/jsonbox).
 
-Стек:
---
-React, react hooks, redux, redux-saga, axios
+
